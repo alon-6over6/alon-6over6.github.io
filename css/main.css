@@ -23,7 +23,9 @@ p.borderBelow {
 
 video {
   vertical-align: top;
-  width: 320px;
+  --width: 640px;
+  width: var(--width);
+  height: calc(var(--width) * 0.5625);
 }
 
 video:last-of-type {
