@@ -46,24 +46,22 @@
     <link href="css/main.css" rel="stylesheet">
   </head>
   <body class="text-center">
-  <h1>GoEyes</h1>
+    <form class="form-signin" action="camera.html">
+        <h1 class="h3 mb-3 font-weight-normal">GoEyes</h1>
+        <div>
+            <button id="start">Start camera</button>
+            <button id="record" disabled>Start Recording</button>
+            <button id="play" disabled>Play</button>
+            <button id="download" disabled>Download</button>
+        </div>
 
+        <video id="gum" playsinline autoplay muted></video>
+        <video id="recorded" playsinline loop></video>
 
-    <video id="gum" playsinline autoplay muted></video>
-    <video id="recorded" playsinline loop></video>
-
-    <div>
-        <button id="start">Start camera</button>
-        <button id="record" disabled>Start Recording</button>
-        <button id="play" disabled>Play</button>
-        <button id="download" disabled>Download</button>
-    </div>
-
-
-
-    <div>
-        <span id="errorMsg"></span>
-    </div>
+        <div>
+            <span id="errorMsg"></span>
+        </div>
+    </form>
 
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 <script src="js/main.js" async></script>
