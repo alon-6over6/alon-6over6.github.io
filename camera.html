@@ -8,7 +8,8 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
     <title>Signin Template · Bootstrap</title>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/">
 
     <!-- Bootstrap core CSS -->
@@ -45,15 +46,30 @@
     <link href="css/main.css" rel="stylesheet">
   </head>
   <body class="text-center">
-    <form class="form-signin" action="camera.html">
-  <img class="mb-4" src="img/glasseson_big.png" alt="" height="72">
-  <h1 class="h3 mb-3 font-weight-normal">Record your video</h1>
-  <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="approve"> I Approve using my photos
-    </label>
-  </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Let's start</button>
-</form>
+  <h1>GoEyes</h1>
+
+
+    <video id="gum" playsinline autoplay muted></video>
+    <video id="recorded" playsinline loop></video>
+
+    <div>
+        <button id="start">Start camera</button>
+        <button id="record" disabled>Start Recording</button>
+        <button id="play" disabled>Play</button>
+        <button id="download" disabled>Download</button>
+    </div>
+
+
+
+    <div>
+        <span id="errorMsg"></span>
+    </div>
+
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script src="js/main.js" async></script>
+<script src="../../../js/lib/ga.js"></script>
+
+</div>
 </body>
 </html>
+
