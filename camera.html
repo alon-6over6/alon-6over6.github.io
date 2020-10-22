@@ -46,23 +46,26 @@
     <link href="css/main.css" rel="stylesheet">
   </head>
   <body class="text-center">
-    
-        <h1 class="h3 mb-3 font-weight-normal">GoEyes</h1>
-        <br>
-        <div>
-            <button id="start">Start camera</button>
-            <button id="record" disabled>Start Recording</button>
-            <button id="play" disabled>Play</button>
-            <button id="download" disabled>Download</button>
-        <br>
-                    
+        <div class="form-signin">
+           <h1 class="h3 mb-3 font-weight-normal">GoEyes</h1>
+            <br>
+            <div class="mb-3 font-weight-normal">
+                <button id="start">Start camera</button>
+                <button id="record" disabled>Start Recording</button>
+                <button id="play" disabled>Play</button>
+                <button id="download" disabled>Download</button>
+            <br>
+                        
+            </div>
+                <video id="gum" playsinline autoplay muted></video>
+                <video id="recorded" playsinline loop></video>
+            <br>
+            <div>
+                <span id="errorMsg"></span>
+            </div>  
+
         </div>
-            <video id="gum" playsinline autoplay muted></video>
-            <video id="recorded" playsinline loop></video>
-        <br>
-        <div>
-            <span id="errorMsg"></span>
-        </div>
+       
 
 
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
