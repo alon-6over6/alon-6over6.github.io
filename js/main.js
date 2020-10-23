@@ -128,7 +128,7 @@ document.querySelector('button#start').addEventListener('click', async () => {
   // const hasEchoCancellation = document.querySelector('#echoCancellation').checked;
   const constraints = {
     video: {
-      width: 1280, height: 720
+      width: 320, height: 720
     }
   };
   console.log('Using media constraints:', constraints);
