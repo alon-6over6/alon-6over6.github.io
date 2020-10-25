@@ -66,7 +66,19 @@ function handleDataAvailable(event) {
 function startRecording() {
   recordedBlobs = [];
   let options = {mimeType: 'video/webm;codecs=vp9,opus'};
+  if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+    console.error(`${options.mimeType} is not supported`);
+    options = {mimeType: 'video/webm;codecs=vp8,opus'};
+    if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+      console.error(`${options.mimeType} is not supported`);
+      options = {mimeType: 'video/webm'};
+      if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+        console.error(`${options.mimeType} is not supported`);
+        options = {mimeType: ''};
+      }
+    }
   }
+
   try {
     mediaRecorder = new MediaRecorder(window.stream, options);
   } catch (e) {
@@ -116,7 +128,7 @@ document.querySelector('button#start').addEventListener('click', async () => {
   // const hasEchoCancellation = document.querySelector('#echoCancellation').checked;
   const constraints = {
     video: {
-      width: 320, height: 720
+      width: 1280, height: 720
     }
   };
   console.log('Using media constraints:', constraints);
