@@ -67,7 +67,6 @@ function startRecording() {
   recordedBlobs = [];
   let options = {mimeType: 'video/webm;codecs=vp9,opus'};
   }
-
   try {
     mediaRecorder = new MediaRecorder(window.stream, options);
   } catch (e) {
