@@ -65,18 +65,8 @@ function handleDataAvailable(event) {
 
 function startRecording() {
   recordedBlobs = [];
-  let options = {mimeType: 'video/webm;codecs=vp9,opus'};
-  
-  }
-
-  try {
-    mediaRecorder = new MediaRecorder(window.stream, options);
-  } catch (e) {
-    console.error('Exception while creating MediaRecorder:', e);
-    errorMsgElement.innerHTML = `Exception while creating MediaRecorder: ${JSON.stringify(e)}`;
-    return;
-  }
-
+  let options = {mimeType: 'video/webm;codecs=h264'};
+  mediaRecorder = new MediaRecorder(window.stream, options);
   console.log('Created MediaRecorder', mediaRecorder, 'with options', options);
   recordButton.textContent = 'Stop Recording';
   playButton.disabled = true;
@@ -89,6 +79,7 @@ function startRecording() {
   mediaRecorder.start();
   console.log('MediaRecorder started', mediaRecorder);
 }
+
 
 function stopRecording() {
   mediaRecorder.stop();
