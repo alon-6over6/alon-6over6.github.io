@@ -23,7 +23,7 @@ recordButton.addEventListener('click', async () => {
   if (recordButton.textContent === 'Start Recording') {
     await startCamera()
     startRecording();
-    playAudio();
+    
   } else {
     stopRecording();
     recordButton.textContent = 'Start Recording';
