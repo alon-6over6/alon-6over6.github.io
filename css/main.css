@@ -67,7 +67,8 @@ p.borderBelow {
 
 video {
   vertical-align: top;
-  width: 320px;
+  max-width: 330px;
+  width: 100%;
   transform: rotateY(180deg);
     -webkit-transform:rotateY(180deg); /* Safari and Chrome */
     -moz-transform:rotateY(180deg); /* Firefox */
@@ -79,3 +80,4 @@ video:last-of-type {
 video#gumVideo {
   margin: 0 20px 20px 0;
 }
+
