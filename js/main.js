@@ -19,9 +19,11 @@ let recordedBlobs;
 const errorMsgElement = document.querySelector('span#errorMsg');
 const recordedVideo = document.querySelector('video#recorded');
 const recordButton = document.querySelector('button#record');
-recordButton.addEventListener('click', () => {
+recordButton.addEventListener('click', async () => {
   if (recordButton.textContent === 'Start Recording') {
+    await startCamera()
     startRecording();
+    playAudio();
   } else {
     stopRecording();
     recordButton.textContent = 'Start Recording';
@@ -63,6 +65,11 @@ function handleDataAvailable(event) {
   }
 }
 
+function playAudio(){
+  var x = document.getElementById("myAudio");
+  x.play();
+}
+
 function startRecording() {
   recordedBlobs = [];
   let options = {mimeType: 'video/webm;codecs=h264'};
@@ -78,7 +85,9 @@ function startRecording() {
   mediaRecorder.ondataavailable = handleDataAvailable;
   mediaRecorder.start();
   console.log('MediaRecorder started', mediaRecorder);
+
 }
+
 
 
 function stopRecording() {
@@ -104,8 +113,7 @@ async function init(constraints) {
   }
 }
 
-document.querySelector('button#start').addEventListener('click', async () => {
-  
+async function startCamera () {
   // const hasEchoCancellation = document.querySelector('#echoCancellation').checked;
   const constraints = {
     video: {
@@ -114,4 +122,4 @@ document.querySelector('button#start').addEventListener('click', async () => {
   };
   console.log('Using media constraints:', constraints);
   await init(constraints);
-});
+}

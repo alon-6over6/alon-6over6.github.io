@@ -37,13 +37,14 @@
     <div class="form-signin">
        <h1 class="h3 mb-3 font-weight-normal">GoEyes</h1>
         <div class="mb-3 font-weight-normal">
-            <button class="btn btn-lg btn-primary btn-block" id="start">Start camera</button>
+            <!-- <button class="btn btn-lg btn-primary btn-block" id="start">Start camera</button> -->
             <button class="btn btn-lg btn-primary btn-block" id="record" disabled>Start Recording</button>
             <button class="btn btn-lg btn-primary btn-block d-none" id="play" disabled>Play</button>
             <button class="btn btn-lg btn-primary btn-block" id="download" disabled>Download</button>                
         </div>
             <video id="gum" playsinline autoplay muted></video>
             <video id="recorded" playsinline loop></video>
+            <audio id="myAudio" class="d-none" src="audio/goeyes.mp4"></audio>
         <div>
             <span id="errorMsg"></span>
         </div>  
