@@ -77,7 +77,20 @@ function pauseAudio(){
 
 function startRecording() {
   recordedBlobs = [];
-  let options = {mimeType: 'video/webm;codecs=h264'};
+  if(/android/i.test(navigator.userAgent) ) {
+    let options = {mimeType: 'video/webm;codecs=vp9,opus'};
+      if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+      console.error(`${options.mimeType} is not supported`);
+      options = {mimeType: 'video/webm;codecs=vp8,opus'};
+      if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+      console.error(`${options.mimeType} is not supported`);
+      options = {mimeType: 'video/webm'};
+      if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+        console.error(`${options.mimeType} is not supported`);
+        options = {mimeType: ''};
+      }
+    }
+  }
   mediaRecorder = new MediaRecorder(window.stream, options);
   console.log('Created MediaRecorder', mediaRecorder, 'with options', options);
   recordButton.textContent = 'Stop Recording';
@@ -90,6 +103,22 @@ function startRecording() {
   mediaRecorder.ondataavailable = handleDataAvailable;
   mediaRecorder.start();
   console.log('MediaRecorder started', mediaRecorder);
+  };
+  if(/iPad|iPhone|iPod/.test(navigator.userAgent) ) {
+    let options = {mimeType: 'video/webm;codecs=h264'};
+    mediaRecorder = new MediaRecorder(window.stream, options);
+    console.log('Created MediaRecorder', mediaRecorder, 'with options', options);
+    recordButton.textContent = 'Stop Recording';
+    playButton.disabled = true;
+    downloadButton.disabled = true;
+    mediaRecorder.onstop = (event) => {
+    console.log('Recorder stopped: ', event);
+    console.log('Recorded Blobs: ', recordedBlobs);
+    };
+    mediaRecorder.ondataavailable = handleDataAvailable;
+    mediaRecorder.start();
+    console.log('MediaRecorder started', mediaRecorder);
+  };
 
 }
 
