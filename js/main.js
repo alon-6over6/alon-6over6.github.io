@@ -78,10 +78,6 @@ function pauseAudio(){
 function startRecording() {
   recordedBlobs = [];
   let options = {mimeType: 'video/webm;codecs=h264'};
-  if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-    console.error(`${options.mimeType} is not supported`);
-    options = {mimeType: 'video/webm;codecs=vp9,opus'};
-  };
   mediaRecorder = new MediaRecorder(window.stream, options);
   console.log('Created MediaRecorder', mediaRecorder, 'with options', options);
   recordButton.textContent = 'Stop Recording';
