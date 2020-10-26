@@ -68,6 +68,9 @@ p.borderBelow {
 video {
   vertical-align: top;
   width: 320px;
+  transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg); /* Firefox */
 
 video:last-of-type {
   margin: 0 0 20px 0;
