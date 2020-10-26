@@ -23,7 +23,7 @@ recordButton.addEventListener('click', async () => {
   if (recordButton.textContent === 'Start Recording') {
     await startCamera()
     startRecording();
-    
+    document.getElementById("myAudio").classList.remove('d-none');
   } else {
     stopRecording();
     recordButton.textContent = 'Start Recording';
