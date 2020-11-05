@@ -285,6 +285,8 @@ if (viewportmeta) {
           glasseson_wc.setResultCallback(resultCallback);
           glasseson_wc.open();
           console.log("Init done");
+          $('#bio_ep').css({'display': 'none'})
+          $('#bio_ep_bg').css({'display': 'none'})
       },
       error => {
           console.log(error);
