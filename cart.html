@@ -272,7 +272,13 @@ if (viewportmeta) {
         <div id="glasseson"></div>
 <script>
   function glass_clicked(){
-      this.closeBtnEl = document.getElementById("bio_ep_close");
+      hidePopup: function() {
+        this.bgEl.style.display = "none";
+        this.popupEl.style.display = "none";
+
+        // Set body overflow back to default to show scrollbars
+        document.body.style.overflow = this.overflowDefault;
+      },
       var options = {
               profileName:"go_lenses",//provided by 6over6  
               fullPage: true,
