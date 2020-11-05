@@ -8,12 +8,12 @@ window.bioEp = {
 	transformDefault: "",
 	
 	// Popup options
-	width: 400,
-	height: 220,
+	width: 500,
+	height: 320,
 	html: "",
 	css: "",
 	fonts: [],
-	delay: 5,
+	delay: 0,
 	showOnDelay: false,
 	cookieExp: 30,
 	showOncePerSession: false,
