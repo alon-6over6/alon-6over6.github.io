@@ -1203,7 +1203,18 @@ body.dark .main__preview {
   color: #F7FAFC;
 }
 
+.btn_greenbio {
+  background: #00CC96;
+  color: #F7FAFC;
+  margin-top: 40px;
+  width: 60%;
+}
+
 .btn_green:hover {
+  background: #00d099;
+}
+
+.btn_greenbio:hover {
   background: #00d099;
 }
 
