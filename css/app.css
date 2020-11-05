@@ -1229,6 +1229,10 @@ body.dark .main__preview {
 }
 
 .btn_wide {
+  min-width: 100%;
+}
+
+button.bio.cart__btn.btn.btn_green.btn_wide {
   min-width: 60%;
 }
 
