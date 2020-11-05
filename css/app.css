@@ -561,7 +561,7 @@ select {
 
 .header {
   position: relative;
-  z-index: 20;
+  z-index: 6;
   margin-bottom: 46px;
   padding: 49px 0;
 }
