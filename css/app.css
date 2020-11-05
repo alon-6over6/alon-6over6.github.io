@@ -1229,7 +1229,7 @@ body.dark .main__preview {
 }
 
 .btn_wide {
-  min-width: 100%;
+  min-width: 60%;
 }
 
 a.btn {
