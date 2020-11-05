@@ -568,7 +568,7 @@ select {
 
 .header__center {
   position: relative;
-  z-index: 5;
+  
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1446,7 +1446,7 @@ body.dark .categories .slick-arrow:hover {
   position: absolute;
   top: 24px;
   right: -24px;
-  z-index: 2;
+  
   min-width: 96px;
   padding: 0 14px;
   text-align: center;
@@ -1809,7 +1809,6 @@ body.dark .review .slick-arrow:hover {
   position: absolute;
   top: 32px;
   right: -32px;
-  z-index: 2;
   min-width: 116px;
   padding: 0 22px;
   text-align: center;
@@ -2609,7 +2608,7 @@ body.dark .breadcrumbs__item:not(:last-child):after {
   position: absolute;
   top: 40px;
   right: -40px;
-  z-index: 5;
+  
   min-width: 155px;
   padding: 0 24px;
   text-align: center;
@@ -2662,7 +2661,6 @@ body.dark .breadcrumbs__item:not(:last-child):after {
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
-  z-index: 3;
   background: #F6F7FB;
   border: 2px solid #F6F7FB;
 }
@@ -2795,7 +2793,6 @@ body.dark .breadcrumbs__item:not(:last-child):after {
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  z-index: 2;
   fill: #FF0000;
   opacity: 0;
 }
@@ -2899,7 +2896,6 @@ body.dark .card .slick-arrow:hover {
   position: absolute;
   top: 0;
   bottom: 0;
-  z-index: 2;
   width: 50px;
   font-size: 0;
   -webkit-transition: all .25s;
@@ -3230,7 +3226,6 @@ body.dark .filters__remove {
 .drop {
   position: relative;
   min-width: 200px;
-  z-index: 10;
   display: inline-block;
 }
 
@@ -3341,7 +3336,6 @@ body.dark .filters__remove {
 }
 
 .drop.open {
-  z-index: 15;
 }
 
 .drop.open .drop__head {
@@ -3920,7 +3914,6 @@ body.dark .checkbox__input:checked + .checkbox__in .checkbox__tick {
   top: 50%;
   left: 0;
   right: 0;
-  z-index: -2;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -3961,7 +3954,6 @@ body.dark .checkbox__input:checked + .checkbox__in .checkbox__tick {
   top: 50%;
   width: 0;
   height: 2px;
-  z-index: -1;
   background: #00CC96;
   -webkit-transition: width .25s;
   -o-transition: width .25s;
@@ -4373,7 +4365,6 @@ body.dark .basket_header {
 }
 
 .login__status:after {
-  z-index: 2;
   background: #00CC96;
 }
 
@@ -4686,7 +4677,6 @@ body.dark .work__item {
   }
   .ZoomContainer,
   .zoomWindow {
-    z-index: 4 !important;
   }
   body.dark .zoomWindow {
     background-color: #1E1E27;
