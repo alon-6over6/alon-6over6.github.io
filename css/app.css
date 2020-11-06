@@ -3946,7 +3946,6 @@ body.dark .checkbox__input:checked + .checkbox__in .checkbox__tick {
   -webkit-transition: all .25s;
   -o-transition: all .25s;
   transition: all .25s;
-  z-index: 5;
 }
 
 .checkout__step:not(:last-child):before {
