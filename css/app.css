@@ -3906,6 +3906,7 @@ body.dark .checkbox__input:checked + .checkbox__in .checkbox__tick {
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 72px;
+  z-index: 5;
 }
 
 .checkout__steps:before {
