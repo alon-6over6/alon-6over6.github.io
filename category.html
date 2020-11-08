@@ -279,6 +279,8 @@ if (viewportmeta) {
         <div id="glasseson"></div>
 <script>
   function glass_clicked(){
+      $('#bio_ep').css({'display': 'none'})
+      $('#bio_ep_bg').css({'display': 'none'})
       var options = {
               profileName:"go_lenses",//provided by 6over6  
               fullPage: true,
@@ -292,6 +294,8 @@ if (viewportmeta) {
           glasseson_wc.setResultCallback(resultCallback);
           glasseson_wc.open();
           console.log("Init done");
+          $('.header__center').css({'display': 'none'}) 
+          $('.cart__details').css({'display': 'none'})   
       },
       error => {
           console.log(error);
