@@ -336,50 +336,37 @@ if (viewportmeta) {
       var serverUrl = "https://staging.glasseson.com/";
       glasseson_wc.init(clientId, serverUrl, options).then(
       response => {
-          glasseson_wc.setResultCallback(resultCallback);
-          glasseson_wc.open();
-          console.log("Init done");
-          $('.header__center').css({'display': 'none'}) 
-          $('.cart__details').css({'display': 'none'})   
-      },
-      error => {
-          console.log(error);
-      });         
+            handleSuccess();
+        },
+        error => {
+            handleError(error);
+        }
+      );
+      function handleSuccess() {
+      glasseson_wc.setResultCallback(resultCallback);
+      glasseson_wc.open().then(
+        response => {
+                  // shopify fix won't be needed in the future versions.
+          document.getElementById("glasseson_wc").style.zIndex = "10000";
+        },
+        error => {
+        }
+      );
   }  
 
   function resultCallback(result) {
-      console.log(result);
-    if (result["isFlowComplete"] == true){
-      var pres = result["prescription"];
+  console.log(result);
+    document.getElementById("l_sph").innerHTML = result.prescription.l_sph;
+    document.getElementById("r_sph").innerHTML = result.prescription.r_sph;
+    document.getElementById("l_cyl").innerHTML = result.prescription.l_cyl;
+    document.getElementById("r_cyl").innerHTML = result.prescription.r_cyl;
+    document.getElementById("l_axis").innerHTML = result.prescription.l_axis;
+    document.getElementById("r_axis").innerHTML = result.prescription.r_axis;
+    document.getElementById("pd").innerHTML = result.prescription.pd;
+    if (result.isFlowComplete) {
       glasseson_wc.close();
-      document.getElementById("pd").innerHTML = pres["pd"] + "mm";
-      console.log("after pd");
-      delete pres["id"]
-      delete pres["pd"]
-      for (item in pres){
-        try{
-          console.log(item)
-          document.getElementById(item).innerHTML = pres[item];
-        }
-        catch(ex){
-          console.log(ex)
-        }
-      }
-      document.getElementById("resultPage").hidden = false;
-      console.log("after hidden")
-      document.getElementById("image").hidden = false;
-      try{
-        glasseson_wc.analytics.logger.log({title: "pv web results"});
-        const animated = document.getElementById("banner");
-        animated.addEventListener("animationend", animationEndCallBack);
-        animated.addEventListener("webkitAnimationEnd", animationEndCallBack);
-        animated.classList.add("fadein")
-      }
-      catch(ex){
-        Console.log(ex);
-      }
     }
-  }
+  };
 </script>
   </body>
 </html>
