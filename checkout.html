@@ -336,12 +336,14 @@ if (viewportmeta) {
       var serverUrl = "https://staging.glasseson.com/";
       glasseson_wc.init(clientId, serverUrl, options).then(
       response => {
-            handleSuccess();
-        },
-        error => {
-            handleError(error);
-        }
-      );
+          console.log("Init done");
+          $('.header__center').css({'display': 'none'});
+          $('.cart__details').css({'display': 'none'});
+          handleSuccess();  
+      },
+      error => {
+          console.log(error);
+      });
       function handleSuccess() {
       glasseson_wc.setResultCallback(resultCallback);
       glasseson_wc.open().then(
@@ -352,6 +354,8 @@ if (viewportmeta) {
         error => {
         }
       );
+      };
+         
   }  
 
   function resultCallback(result) {
