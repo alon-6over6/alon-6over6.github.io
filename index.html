@@ -370,62 +370,27 @@
 
 <script>
   function glass_clicked(){
-      $('#bio_ep').css({'display': 'none'})
-      $('#bio_ep_bg').css({'display': 'none'})
-      var options = {
-              profileName:"web",//provided by 6over6  
-              fullPage: true,
-              themeColor: "#5FB8E3",
-              fontFamily: "Arial"
-      };
-      var clientId =  "948614bf-4f12-43a9-a9ed-8263a1fdcf23";
-      var serverUrl = "https://dev.api.glasseson.com/beta/";
-      glasseson_wc.init(clientId, serverUrl, options).then(
-      response => {
-          glasseson_wc.setResultCallback(resultCallback);
-          glasseson_wc.open();
-          console.log("Init done");
-          $('.header__center').css({'display': 'none'}) 
-          $('.cart__details').css({'display': 'none'})   
-      },
-      error => {
-          console.log(error);
-      });         
-  }  
+            var options = {
+                   profileName:"web",//provided by 6over6  
+                    flow: "pd", 
+                    fullPage: true,
+                    width: 835,
+                    themeColor: "#5FB8E3",
+                    fontFamily: "Arial"
+            };
+            var clientId =  "948614bf-4f12-43a9-a9ed-8263a1fdcf23";
+            var serverUrl = "https://dev.api.glasseson.com/beta/";
+            glasseson.init(clientId, serverUrl, options).then(
+            response => {
+                console.log("Init done");
+                glasseson.open("pd");
+            },
+            error => {
+                console.log(error);
+            });
+           
+        }
 
-  function resultCallback(result) {
-      console.log(result);
-    if (result["isFlowComplete"] == true){
-      var pres = result["prescription"];
-      glasseson_wc.close();
-      document.getElementById("pd").innerHTML = pres["pd"] + "mm";
-      console.log("after pd");
-      delete pres["id"]
-      delete pres["pd"]
-      for (item in pres){
-        try{
-          console.log(item)
-          document.getElementById(item).innerHTML = pres[item];
-        }
-        catch(ex){
-          console.log(ex)
-        }
-      }
-      document.getElementById("resultPage").hidden = false;
-      console.log("after hidden")
-      document.getElementById("image").hidden = false;
-      try{
-        glasseson_wc.analytics.logger.log({title: "pv web results"});
-        const animated = document.getElementById("banner");
-        animated.addEventListener("animationend", animationEndCallBack);
-        animated.addEventListener("webkitAnimationEnd", animationEndCallBack);
-        animated.classList.add("fadein")
-      }
-      catch(ex){
-        Console.log(ex);
-      }
-    }
-  }
 </script>
   </body>
 </html>
