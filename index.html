@@ -366,18 +366,21 @@
     <script src="js/app.js"></script>
     <script src="js/common.js"></script>
     <div id="glasseson"></div>
+    <script src=”https://web.glasseson.com/js/glasseson-2.7.3.js”>
+    </script>
+
 <script>
   function glass_clicked(){
       $('#bio_ep').css({'display': 'none'})
       $('#bio_ep_bg').css({'display': 'none'})
       var options = {
-              profileName:"go_lenses",//provided by 6over6  
+              profileName:"web",//provided by 6over6  
               fullPage: true,
               themeColor: "#5FB8E3",
               fontFamily: "Arial"
       };
       var clientId =  "948614bf-4f12-43a9-a9ed-8263a1fdcf23";
-      var serverUrl = "https://staging.glasseson.com/";
+      var serverUrl = "https://dev.api.glasseson.com/beta/";
       glasseson_wc.init(clientId, serverUrl, options).then(
       response => {
           glasseson_wc.setResultCallback(resultCallback);
